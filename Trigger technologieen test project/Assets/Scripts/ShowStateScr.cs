@@ -15,31 +15,52 @@ public class ShowStateScr : MonoBehaviour
 
     public Text arState;
     public Text platform;
+    public Text stability;
     private TrackableBehaviour vuforiaTrackable;
     private TrackingState arFoundationTrackable;
+
+    public GameObject vuforiaGameObject;
+    public GameObject arFoundationGameObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        autoDetectARPlatform();
+        arPlatform = autoDetectARPlatform();
+        changeARPlatform(arPlatform);
 
         if (arPlatform == ARplatform.Vuforia)
         {
             vuforiaTrackable = FindObjectOfType<TrackableBehaviour>().GetComponent<TrackableBehaviour>();  
         }
+
+        SetPlatformToText(arPlatform);
     }
 
     // Update is called once per frame
     void Update()
-    {
-        SetPlatformToText(arPlatform);
+    {   
         if (arPlatform == ARplatform.ARFoundation)
         {
             SetARFoundationStateToText(arFoundationTrackable);
+
+            if (arFoundationTrackable == TrackingState.Tracking)
+            {
+                StartCoroutine("CheckStability");
+            }
         }
         else
         {
             SetVuforiaStateToText(vuforiaTrackable.CurrentStatus);
+
+            if (vuforiaTrackable.CurrentStatus == TrackableBehaviour.Status.TRACKED)
+            {
+                StartCoroutine("CheckStability");
+            }
+            else
+            {
+                SetStabilityToText("Stable tracking not achieved");
+                stability.color = Color.red;
+            }
         }
     }
 
@@ -57,22 +78,60 @@ public class ShowStateScr : MonoBehaviour
     {
         platform.text = "Platform: " + arPlatform;
     }
+    private void SetStabilityToText(string stabilityStatus)
+    {
+        stability.text = "Stability: " + stabilityStatus;
+        stability.color = Color.green;
+    }
 
     private ARplatform autoDetectARPlatform()
     {
+        return ARplatform.Vuforia;
+        //return ARplatform.ARFoundation;
+    }
 
-        // For testing.
-        //return ARplatform.Vuforia;
+    public void changeARPlatform(ARplatform newARPlatform)
+    {
+        arPlatform = newARPlatform;
 
-        if (ARSession.state == ARSessionState.Unsupported)
+        if (newARPlatform == ARplatform.Vuforia)
         {
-            return ARplatform.Vuforia;
+            disableARFaundation();
+            enableVuforia();
         }
-        else
+        else if (newARPlatform == ARplatform.ARFoundation)
         {
-            return ARplatform.ARFoundation;
+            disableVuforia();
+            enableARFoundation();
         }
     }
 
+    private void enableVuforia()
+    {
+        VuforiaRuntime.Instance.InitVuforia();
+        vuforiaGameObject.SetActive(true);
+    }
+
+    private void disableVuforia()
+    {
+        vuforiaGameObject.SetActive(false);
+        VuforiaRuntime.Instance.Deinit();
+    }
+
+    private void enableARFoundation()
+    {
+        arFoundationGameObject.SetActive(true);
+    }
+
+    private void disableARFaundation()
+    {
+        arFoundationGameObject.SetActive(false);
+    }
+
+    private IEnumerator CheckStability()
+    {
+        yield return new WaitForSeconds(2f);
+        SetStabilityToText("Stable tracking achieved");
+    }
 
 }
