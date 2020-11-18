@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VuforiaUnityInfo version="7.0">
+    <TargetSet version="5.0" toolVersion="2.8.0">
+        <CylinderTarget name="skuumkoppe" version="3.0" targetId="7803a6765d2d428291e44c0ccfb72568" sideLength="11.000000" topDiameter="6.000000" bottomDiameter="6.000000" sideImage="skuumkoppe.Body_scaled.jpg"/>
+    </TargetSet>
+</VuforiaUnityInfo>

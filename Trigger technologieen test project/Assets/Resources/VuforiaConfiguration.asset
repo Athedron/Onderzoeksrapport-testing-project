@@ -17,8 +17,8 @@ MonoBehaviour:
     ufoLicenseKey: QWR0M0ZNUC8vLy8vQUFBQUtHWm1qdTl3ZWtTOHJhKzFXbHg3ZjFZR3laOExLcXN5S2ZtKzZoM3o5eXlyTTJKazhMWGM5UU1DRVBjRDA1UlpHQkJzTnhoQ0JkOFRkK09jeUZERS9DSHdKMWJpa2NneXUrcXJqNkl0RUpKNUtpU3MyVzFCR2FNTmVvbjluRWtLbXU5VUgraFdmdmlxaFQ1SVF0MVFKdnJ6emsxTkIrZStHUFNDMTVQNU4yRnJ1b2x6RDVjZDBoWUhFVUNrbjBQVmZkb3dxSzNOcHJ3eU5xclNZamNSdVgzQjFRRjZBK3gwSXpXWGhwQVNvT3NXSmZ1M1MzMDZlTUpoamZZWHF2RjBid1BIMmZGd2RRcjloUk01NSt5dzBPL2RLOTRQaUc3aGVGR1BKSWErQ3RrbWFENWlWRWx0bXRqWC9GT0tYMWM2ZEl0YXNhVGhVOUpZMzZleUdIZ2Z1c2ZYWUVWYmN4R1VDVWVTZDU4bTZhLzk=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
-    maxSimultaneousImageTargets: 1
-    maxSimultaneousObjectTargets: 1
+    maxSimultaneousImageTargets: 2
+    maxSimultaneousObjectTargets: 2
     useDelayedLoadingObjectTargets: 0
     modelTargetRecoWhileExtendedTracked: 1
     version: 8.5.9
@@ -33,12 +33,12 @@ MonoBehaviour:
   deviceTracker:
     autoInitTracker: 1
     autoStartTracker: 1
-    arcoreRequirement: 1
+    arcoreRequirement: 2
     autoImportArcore: 0
   smartTerrain:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: Microsoft LifeCam VX-5000
+    deviceNameSetInEditor: Logitech BRIO
     turnOffWebCam: 0
     renderTextureLayer: 30

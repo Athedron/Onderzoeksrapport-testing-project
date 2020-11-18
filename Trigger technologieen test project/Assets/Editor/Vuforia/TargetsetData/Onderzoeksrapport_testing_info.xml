@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="QCAR_Dataset_config.xsd">
+  <TargetSet version="5.0" toolVersion="4.2.0">
+    <ObjectTarget bbox="0.0000 0.0000 0.0000 0.1425 0.0950 0.0950" captureAppVersion="6.5.0" lastSaved="2020-09-17T07:46:45Z" name="skuumkoppetest" targetId="19053b7c82e74d059d12242f8c65a58d" version="2.0" />
+    <ObjectTarget bbox="0.0000 0.0000 0.0000 0.1425 0.0950 0.0950" captureAppVersion="6.5.0" lastSaved="2020-11-18T09:03:02Z" name="reflective_surface_object" targetId="88a3ef370d7642a0a2456feeb03c76be" version="2.0" />
+  </TargetSet>
+</QCARInfo>

@@ -2,5 +2,6 @@
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
     <ImageTarget name="ImageMarkerTests" size="0.300000 0.300000" />
+    <CylinderTarget name="skuumkoppe" sideLength="11.000000"/>
   </Tracking>
 </QCARConfig>
